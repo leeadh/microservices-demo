@@ -46,6 +46,8 @@ deploy-to-kuberntes-grafana-prometheus:
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: create -f ./deploy/kubernetes/manifests-monitoring
-
-
+        command: create -f ./deploy/kubernetes/manifests-monitoring/grafana-configmap.yaml
+        command: create -f ./deploy/kubernetes/manifests-monitoring/grafana-dep.yaml
+        command: create -f ./deploy/kubernetes/manifests-monitoring/grafana-import-dash-batch.yaml
+        command: create -f ./deploy/kubernetes/manifests-monitoring/grafana-svc.yaml
 
