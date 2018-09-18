@@ -46,5 +46,12 @@ deploy-to-kuberntes-grafana-prometheus:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
+        command: create -f ns-monitoring.yml
+
+      - kubectl:
+        name: apply app deployment    
+        server: $KUBERNETES_MASTER
+        token: $KUBERNETES_TOKEN
+        insecure-skip-tls-verify: true
         command: create -f deploy/kubernetes/manifests-monitoring
 
