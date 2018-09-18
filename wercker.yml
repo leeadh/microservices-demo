@@ -38,16 +38,3 @@ deploy-to-kuberntes:
           command: apply -f deploy/kubernetes/complete-demo.yaml
       
         
-deploy-to-kuberntes-grafana-prometheus:
-    steps:
-      - kubectl:
-        name: apply app deployment    
-        server: $KUBERNETES_MASTER
-        token: $KUBERNETES_TOKEN
-        insecure-skip-tls-verify: true
-        command: create -f ./deploy/kubernetes/manifests-monitoring
-        command: create -f ./deploy/kubernetes/manifests-monitoring/grafana-configmap.yaml
-        command: create -f ./deploy/kubernetes/manifests-monitoring/grafana-dep.yaml
-        command: create -f ./deploy/kubernetes/manifests-monitoring/grafana-import-dash-batch.yaml
-        command: create -f ./deploy/kubernetes/manifests-monitoring/grafana-svc.yaml
-
