@@ -1,0 +1,12 @@
+#
+deploy-to-kuberntes:
+    steps:
+      - kubectl: 
+          name: apply deployment
+          server: $KUBERNETES_MASTER
+          token: $KUBERNETES_TOKEN
+          insecure-skip-tls-verify: true
+          command: apply -f deploy/kubernetes/complete-demo.yaml
+      
+        
+
