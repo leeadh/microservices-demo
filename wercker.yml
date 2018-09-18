@@ -18,11 +18,12 @@ build:
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
 
-          
+
 deploy-to-kuberntes:
     steps:
       - kubectl: 
           name: apply deployment
+          namespace: 
           server: $KUBERNETES_MASTER
           token: $KUBERNETES_TOKEN
           insecure-skip-tls-verify: true
